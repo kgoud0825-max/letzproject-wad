@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#071b2c" />
+  <meta name="description" content="SipStreak — make hydration a team sport." />
+  <title>SipStreak | HydroHero Hunt</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="sidebar">
+      <a class="brand" href="#overview" aria-label="SipStreak home">
+        <span class="brand-mark">💧</span>
+        <span>Sip<span class="brand-light">Streak</span>
+        <small>HYDROHERO HUNT</small>
+      </span>
+      </a>
+      <div class="side-label">WORKSPACE</div>
+      <nav class="nav-list">
+        <a class="nav-link active" href="#overview" data-page="overview"><span>◫</span> Overview</a>
+        <a class="nav-link" href="#teams" data-page="teams"><span>♧</span> My squad</a>
+        <a class="nav-link" href="#leaderboard" data-page="leaderboard"><span>♜</span> Leaderboard</a>
+        <a class="nav-link" href="#history" data-page="history"><span>▥</span> Hydration history</a>
+      </nav>
+      <div class="side-label tools-label">YOUR TOOLS</div>
+      <nav class="nav-list">
+        <a class="nav-link" href="#plant" data-page="plant"><span>♧</span> Virtual plant</a>
+        <a class="nav-link" href="#bottle" data-page="bottle"><span>▣</span> Bottle QR sticker</a>
+      </nav>
+      <div class="sidebar-bottom">
+        <div class="side-tip"><span class="tip-icon">✦</span><b>Small sips, big wins.</b>
+          <p>Every glass brings your squad closer to the top.</p>
+        </div>
+        <div class="profile-mini">
+          <div class="avatar">AK</div>
+          <div>
+            <b id="sideUserName">Aarav Kumar</b>
+            <small>Hydro Hero</small>
+          </div>
+          <button class="icon-btn" id="settingsBtn" title="Profile settings">⚙</button>
+        </div>
+      </div>
+    </aside>
+
+    <main class="main-area">
+      <header class="topbar">
+        <button class="mobile-menu icon-btn" id="menuBtn" aria-label="Open menu">☰</button>
+        <div class="breadcrumb">Workspace <span>/</span> <b id="pageCrumb">Overview</b></div>
+        <div class="top-actions">
+          <span class="date-chip" id="todayLabel"></span>
+          <button class="notification-btn" id="reminderBtn" title="Toggle hydration reminders">♧<i></i></button>
+          <div class="avatar top-avatar">AK</div>
+        </div>
+      </header>
+
+      <section class="page active" id="page-overview">
+        <div class="welcome-row">
+          <div><div class="eyebrow">SUNDAY RESET · HYDRATION CHECK-IN</div>
+          <h1>Stay hydrated, <span id="welcomeName">Aarav</span> 
+            <span class="wave">✦</span></h1>
+            <p class="muted">Every sip counts. Let's make today a healthy win.</p>
+          </div>
+          <button class="primary-btn" id="quickLogTop">＋ Log water</button>
+        </div>
+        <div class="hero-card">
+          <div class="hero-copy">
+            <span class="pill">
+              <span class="pulse"></span> TODAY'S HYDRATION</span>
+              <h2>You're making<br> <em>waves.</em></h2>
+              <p>Keep your momentum going. Your next sip is a step toward your daily goal.</p>
+              <div class="hero-stat">
+                <b id="heroIntake">1,250</b>
+                <span>ml consumed today</span>
+              </div>
+              <div class="hero-progress">
+                <div class="progress-track">
+                  <div class="progress-fill" id="heroProgress"></div>
+                </div>
+                <div class="progress-label">
+                  <span id="heroPercent">42% completed</span>
+                  <span id="heroGoal">Goal: 3,000 ml</span>
+                </div>
+              </div>
+            </div>
+          <div class="water-visual">
+            <div class="water-ring">
+              <div class="ring-inner">
+                <div class="drop">💧</div>
+                <strong id="ringPercent">42%</strong>
+                <small>DAILY GOAL</small>
+              </div>
+              <div class="ring-wave"></div>
+            </div>
+            <span class="bubble b1">
+            </span>
+            <span class="bubble b2"></span>
+            <span class="bubble b3"></span>
+            <div class="visual-caption">One sip at a time</div>
+          </div>
+          <div class="hero-glow"></div>
+        </div>
+
+        <div class="section-heading"><div>
+          <h2>Quick add</h2>
+          <p class="muted">Log a glass in one tap</p>
+        </div>
+        <span class="tiny-note">YOUR DAILY FLOW</span>
+      </div>
+        <div class="quick-grid">
+          <button class="quick-card" data-amount="250">
+            <span class="glass-icon">🥛</span>
+            <b>+250 ml</b>
+            <small>Small glass</small>
+          </button>
+          <button class="quick-card featured" data-amount="500">
+            <span class="glass-icon">🫗</span>
+            <b>+500 ml</b>
+            <small>Water bottle</small>
+            <span class="popular">POPULAR</span>
+          </button>
+          <button class="quick-card" data-amount="750">
+            <span class="glass-icon">🚰</span>
+            <b>+750 ml</b>
+            <small>Large bottle</small>
+          </button>
+          <button class="quick-card custom-card" id="customBtn">
+            <span class="glass-icon">＋</span>
+            <b>Custom</b>
+            <small>Choose amount</small>
+          </button>
+        </div>
+
+        <div class="content-grid">
+          <div class="panel squad-panel">
+          <div class="panel-head">
+          <div><h3>Your squad</h3>
+            <p class="muted">Team hydration progress</p>
+          </div><a href="#teams" class="text-link">View squad ↗</a></div>
+          <div class="squad-main"><div class="squad-icon">🌊</div>
+          <div class="squad-info">
+            <b id="teamNameCard">Hydration Homies</b>
+            <small><span id="teamMemberCount">4</span> members · Team challenge</small>
+          </div>
+          <span class="rank-tag">#2 RANK</span>
+        </div>
+        <div class="team-progress-row">
+          <div class="progress-track">
+          <div class="progress-fill teal" id="teamProgress">
+
+          </div>
+        </div>
+        <b id="teamPercent">78%</b>
+      </div>
+        <div class="team-foot">
+          <span>Team daily goal</span>
+          <b id="teamTotal">9,360 / 12,000 ml</b>
+        </div>
+      </div>
+          <div class="panel goal-panel">
+            <div class="panel-head"><div>
+              <h3>Your daily goal</h3>
+              <p class="muted">Personalized hydration target</p>
+            </div>
+            <span class="goal-icon">◎</span>
+          </div>
+          <div class="goal-number">
+            <strong id="goalDisplay">3,000</strong>
+            <span>ml / day</span>
+          </div>
+          <div class="goal-meta">
+            <span>Based on your weight</span>
+            <b id="weightDisplay">86 kg × 35 ml</b>
+          </div>
+          <button class="outline-btn full-btn" id="editGoalBtn">Edit my goal</button>
+        </div>
+      </div>
+      <div class="bottom-grid">
+        <div class="panel streak-panel">
+          <div class="panel-head">
+            <div>
+              <h3>Consistency streak</h3>
+              <p class="muted">Keep your healthy habit alive</p>
+            </div>
+            <span class="fire">🔥</span>
+          </div>
+          <div class="streak-number">
+            <strong id="streakCount">3</strong>
+            <span>days in a row</span>
+          </div>
+          <div class="week-dots" id="weekDots"></div>
+          <div class="streak-caption">You're building a great habit. Keep going!</div>
+        </div>
+        <div class="panel plant-mini">
+          <div class="plant-emoji" id="miniPlant">🌱</div>
+          <div>
+            <h3>Your plant is growing</h3>
+            <p class="muted">Your hydration helps your virtual plant thrive.</p>
+            <a href="#plant" class="text-link">Visit your plant ↗</a>
+          </div>
+        </div>
+      </div>
+      </section>
+
+      <section class="page" id="page-teams">
+        <div class="page-title-row">
+          <div>
+            <div class="eyebrow">BETTER TOGETHER</div>
+            <h1>My hydration squad</h1>
+            <p class="muted">Build healthy habits with your favorite people.</p>
+          </div>
+          <button class="primary-btn" id="createTeamBtn">＋ Create squad</button>
+        </div>
+        <div class="team-banner"><div>
+          <span class="pill">CURRENT SQUAD</span>
+          <h2 id="teamPageName">Hydration Homies</h2>
+          <p>Drink together. Win together. Your team's daily mission is to reach 100% hydration.</p>
+          <div class="invite-code">INVITE CODE <b id="inviteCode">HYDRO24</b>
+            <button id="copyInvite" class="copy-btn">Copy</button>
+          </div>
+        </div>
+        <div class="team-banner-art">
+          🌊<span>💧</span>
+        </div>
+      </div>
+        <div class="section-heading">
+          <div>
+            <h2>Squad members</h2>
+            <p class="muted">Today's individual contributions</p>
+          </div>
+          <span class="tiny-note" id="memberCountLabel">4 MEMBERS</span>
+        </div>
+        <div class="member-list panel" id="memberList"></div>
+        <div class="panel join-panel">
+          <div><h3>Join another squad</h3>
+            <p class="muted">Have an invite code from a friend?</p>
+          </div>
+          <div class="join-controls">
+            <input id="joinCode" placeholder="Enter invite code" maxlength="12">
+            <button class="primary-btn" id="joinTeamBtn">Join squad</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="page" id="page-leaderboard">
+        <div class="eyebrow">CAMPUS-WIDE COMPETITION</div>
+        <h1>HydroHero leaderboard</h1>
+        <p class="muted">A little friendly competition goes a long way.</p>
+        <div class="leader-hero">
+          <div><span class="pill">🏆 LIVE TEAM RANKINGS</span>
+            <h2>Who will make<br>the biggest splash?</h2>
+            <p>Teams are ranked by their average percentage of daily hydration goals achieved.</p>
+          </div>
+          <div class="podium" id="podium"></div></div>
+        <div class="panel leaderboard-panel"><div class="panel-head"><div>
+          <h3>Team rankings</h3>
+          <p class="muted">Updated when a member logs water</p>
+        </div>
+        <span class="live-tag">
+          <i>
+
+          </i> LIVE DEMO</span>
+        </div>
+        <div id="leaderRows"></div>
+        <div class="formula-note">TEAM SCORE = Average of each member's capped daily goal completion (maximum 100% per member).</div>
+      </div>
+      </section>
+
+      <section class="page" id="page-history">
+        <div class="eyebrow">YOUR PROGRESS, VISUALIZED</div>
+        <h1>Hydration history</h1>
+        <p class="muted">See your consistency and celebrate every little win.</p>
+        <div class="history-stats">
+          <div class="panel stat-card">
+            <span>WEEKLY TOTAL</span>
+            <b id="weeklyTotal">12,450 <small>ml</small></b>
+            <i>↗ Your water journey</i>
+          </div>
+            <div class="panel stat-card">
+              <span>DAILY AVERAGE</span>
+              <b id="dailyAverage">1,779 <small>ml</small></b>
+              <i>Across the last 7 days</i>
+            </div>
+            <div class="panel stat-card">
+              <span>GOAL DAYS</span>
+              <b id="goalDays">2 <small>/ 7</small></b>
+              <i>Days you hit your target</i>
+            </div>
+          </div>
+        </div>
+        <div class="panel chart-panel">
+          <div class="panel-head">
+            <div>
+              <h3>Last 7 days</h3>
+              <p class="muted">Your daily water intake vs. goal</p>
+            </div>
+            <span class="chart-legend">
+              <i></i> Water intake
+              <i class="legend-goal"></i> Daily goal
+            </span>
+          </div>
+          <div class="chart-wrap">
+            <canvas id="historyChart" height="240"></canvas>
+          </div>
+        </div>
+        <div class="panel history-log">
+          <div class="panel-head">
+            <div>
+              <h3>Today's log</h3>
+              <p class="muted">Your recent hydration activity</p>
+            </div>
+            <button class="outline-btn" id="historyLogBtn">＋ Add water</button>
+          </div>
+          <div id="logList"></div>
+        </div>
+      </section>
+
+      <section class="page" id="page-plant">
+        <div class="eyebrow">GROW WITH EVERY SIP</div>
+        <h1>Your hydration garden</h1>
+        <p class="muted">Every glass gives your virtual plant a little love.</p>
+        <div class="plant-page-card">
+          <div class="garden-scene">
+            <div class="sun">☀</div>
+            <div class="plant-big" id="bigPlant">🌱</div>
+            <div class="soil"></div>
+            <div class="garden-ground">
+            </div>
+          </div>
+          <div class="plant-details">
+            <span class="pill">YOUR LITTLE COMPANION</span>
+            <h2 id="plantStage">A tiny beginning</h2>
+            <p id="plantMessage">Your plant is waiting for its first drink. Log water to help it grow!</p>
+            <div class="plant-level"><div>
+              <span>GROWTH LEVEL</span>
+              <b id="plantLevel">Level 1 · Seedling</b>
+            </div>
+            <strong id="plantPercent">0%</strong>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" id="plantProgress">
+            </div>
+          </div>
+          <p class="muted small">Growth is based on today's progress toward your water goal.</p>
+          <button class="primary-btn" id="plantLogBtn">💧 Give my plant a drink</button>
+        </div>
+      </div>
+        <div class="panel caffeine-panel">
+          <div class="caffeine-icon">☕</div>
+          <div><h3>Had a caffeinated drink?</h3>
+            <p class="muted">For this demo, you can add a 200 ml hydration buffer when you log a caffeinated drink.</p>
+          </div>
+          <button class="outline-btn" id="caffeineBtn">Add caffeine buffer</button>
+        </div>
+      </section>
+
+      <section class="page" id="page-bottle">
+        <div class="eyebrow">HYDRATION ON THE GO</div>
+        <h1>Your bottle, one quick scan</h1>
+        <p class="muted">Create a personal QR sticker that opens SipStreak with a water amount ready to log.</p>
+        <div class="panel qr-panel">
+          <div class="qr-controls">
+            <span class="pill">PERSONAL BOTTLE STICKER</span>
+            <h2>Make every refill count.</h2>
+            <p class="muted">Choose a quick-add amount. Print your sticker and attach it to your bottle.</p>
+            <label for="qrAmount">Pre-filled water amount</label>
+            <select id="qrAmount">
+              <option value="250">250 ml · Small glass</option>
+              <option value="500" selected>500 ml · Water bottle</option>
+              <option value="750">750 ml · Large bottle</option>
+            </select>
+            <label for="qrUser">Your display name</label>
+            <input id="qrUser" value="Aarav Kumar" maxlength="24">
+            <button class="primary-btn" id="generateQR">Generate my QR sticker</button>
+            <p class="small muted">QR scanning requires an internet connection to load the QR library and open this local demo link. The code encodes your selected amount.</p>
+          </div>
+          <div class="qr-preview">
+            <div class="sticker">
+              <div class="sticker-brand">💧 SIPSTREAK</div>
+              <div id="qrcode">
+                <div class="qr-placeholder">▦</div>
+              </div>
+              <b>SCAN. SIP. REPEAT.</b>
+              <small id="qrCaption">500 ML QUICK LOG</small>
+            </div>
+            <button class="outline-btn" id="printQR">⎙ Print sticker</button>
+          </div>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <span>© 2026 SipStreak · HydroHero Hunt</span>
+        <span>Made for healthier habits <b>♥</b></span>
+      </footer>
+    </main>
+  </div>
+
+  <div class="toast" id="toast" role="status"></div>
+  <div class="modal-backdrop" id="modalBackdrop">
+    <div class="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <button class="modal-close" id="modalClose">×</button>
+      <div class="eyebrow">SIPSTREAK ACTION</div>
+      <h2 id="modalTitle">Log your water</h2>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
